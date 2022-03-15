@@ -1,0 +1,95 @@
+import { Meta } from '@storybook/addon-docs';
+import { DocThemeProvider, Inline, Palette, PaletteItem } from './helpers';
+
+import {
+  fontSizes,
+  lineHeights,
+  fontWeights,
+  radii,
+  space,
+  colors,
+} from '../theme';
+
+<Meta
+  title="Intro/Theme"
+  parameters={{
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Theme
+
+Here are all of `styled-components` design system tokens (`theme` prop).
+
+- [Font Sizes](#fontSizes)
+- [Line Heights](#lineHeights)
+- [Font Weights](#fontWeights)
+- [Radii](#radii)
+- [Space](#space)
+- [Colors](#colors)
+
+<a id="fontSizes" />
+
+## Font Sizes
+
+<DocThemeProvider>
+  <Inline content={fontSizes} appearance="fontSizes" spaceBetween />
+</DocThemeProvider>
+
+<a id="lineHeights" />
+
+## Line Heights
+
+<DocThemeProvider>
+  <Inline content={lineHeights} appearance="lineHeights" />
+</DocThemeProvider>
+
+<a id="fontWeights" />
+
+## Font Weights
+
+<DocThemeProvider>
+  <Inline content={fontWeights} appearance="fontWeights" />
+</DocThemeProvider>
+
+<a id="- [Radii](#radii)" />
+
+## Radii
+
+<DocThemeProvider>
+  <Inline content={radii} />
+</DocThemeProvider>
+
+<a id="space" />
+
+## Space
+
+<DocThemeProvider>
+  <Inline content={space} stretched />
+</DocThemeProvider>
+
+<a id="colors" />
+
+## Colors
+
+<DocThemeProvider>
+  <Palette>
+    {Object.keys(colors).map((c) => (
+      <PaletteItem
+        box={{ backgroundColor: c, borderRadius: 'rounded' }}
+        name={c}
+        description={colors[c]}
+        code={c}
+        key={c}
+        sampleFrame={
+          (colors[c].includes('rgba') || colors[c].includes('fff')) && 'rgba'
+        }
+        size="small"
+      />
+    ))}
+  </Palette>
+</DocThemeProvider>

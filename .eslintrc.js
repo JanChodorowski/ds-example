@@ -1,0 +1,60 @@
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'airbnb-typescript',
+    'prettier',
+    'plugin:react-hooks/recommended',
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: 'module',
+    project: './tsconfig.json',
+  },
+  plugins: ['react', '@typescript-eslint', 'prettier'],
+  globals: {
+    window: true,
+    document: true,
+    Blob: true,
+  },
+  rules: {
+    'no-unused-vars': 'error',
+    'no-restricted-syntax': 0,
+    'operator-linebreak': 0,
+    'implicit-arrow-linebreak': 0,
+    'max-len': 0,
+    'import/no-extraneous-dependencies': 0,
+    'react/no-unescaped-entities': [
+      'error',
+      {
+        forbid: ['>', '}'],
+      },
+    ],
+    'object-curly-newline': 0,
+    'import/prefer-default-export': 0,
+    'react/prop-types': 0,
+    'react/jsx-props-no-spreading': 0,
+    'react/jsx-uses-react': 0,
+    'react/react-in-jsx-scope': 0,
+    'react/default-props-match-prop-types': 0,
+    '@typescript-eslint/default-param-last': 0,
+    '@typescript-eslint/no-use-before-define': 0,
+    'react-hooks/exhaustive-deps': 'error',
+  },
+  ignorePatterns: [
+    '.eslintrc.js',
+    'storybook-static',
+    'node_modules',
+    'dist',
+    '**/*.stories.ts',
+    '**/*.stories.tsx',
+  ],
+};
